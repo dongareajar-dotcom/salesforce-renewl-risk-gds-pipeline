@@ -45,7 +45,7 @@ jobs:
         run: databricks bundle validate --target dev
 
       - name: Deploy dev bundle
-        run: databricks bundle deploy --target dev
+        run: databricks bundle deploy --target dev --auto-approve
 
   deploy-prod:
     name: Deploy Prod Bundle
@@ -73,7 +73,7 @@ jobs:
         run: |
           test -n "$DATABRICKS_HOST"
           test -n "$DATABRICKS_TOKEN"
-       
+        
 
       - name: Bootstrap Unity Catalog objects
         run: python3 scripts/bootstrap_unity_catalog.py
@@ -82,4 +82,4 @@ jobs:
         run: databricks bundle validate --target prod
 
       - name: Deploy prod bundle
-        run: databricks bundle deploy --target prod
+        run: databricks bundle deploy --target prod --auto-approve
