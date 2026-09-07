@@ -31,7 +31,7 @@ variables:
     default: salesforce_renewal_risk_conn
   sql_warehouse_id:
     description: SQL warehouse ID used by the decoupled environment bootstrap job and pre-deploy setup script.
-    default: d04afe701198730d?o=633973757461300
+    default: d04afe701198730d
 
 targets:
   dev:
