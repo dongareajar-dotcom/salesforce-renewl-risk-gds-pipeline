@@ -23,6 +23,7 @@ jobs:
     env:
       DATABRICKS_HOST: ${{ secrets.DATABRICKS_HOST }}
       DATABRICKS_TOKEN: ${{ secrets.DATABRICKS_TOKEN }}
+      DATABRICKS_SQL_WAREHOUSE_ID: d04afe701198730d
     steps:
       - name: Checkout dev branch
         uses: actions/checkout@v4
@@ -58,6 +59,7 @@ jobs:
     env:
       DATABRICKS_HOST: ${{ secrets.DATABRICKS_HOST }}
       DATABRICKS_TOKEN: ${{ secrets.DATABRICKS_TOKEN }}
+      DATABRICKS_SQL_WAREHOUSE_ID: d04afe701198730d
     steps:
       - name: Checkout main branch
         uses: actions/checkout@v4
@@ -71,6 +73,7 @@ jobs:
         run: |
           test -n "$DATABRICKS_HOST"
           test -n "$DATABRICKS_TOKEN"
+       
 
       - name: Bootstrap Unity Catalog objects
         run: python3 scripts/bootstrap_unity_catalog.py
